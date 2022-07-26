@@ -1,0 +1,12 @@
+footer {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    display: inline;
+    margin: 0 0 0 5px;
+    font-size: larger;
+}

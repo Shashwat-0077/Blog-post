@@ -1,0 +1,37 @@
+#main-body {
+    min-height: calc(100vh - 71px - 50px);
+}
+
+/* drop down */
+.drop-down-button {
+    cursor: pointer;
+}
+
+.drop-down-button > * {
+    pointer-events: none;
+}
+
+.drop-down {
+    position: relative;
+}
+
+.drop-menu {
+    background-color: white;
+    position: absolute;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    flex-direction: column;
+    width: 100%;
+    transition: 200ms;
+    top: 0px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dropped .drop-menu {
+    opacity: 1;
+    pointer-events: auto;
+    top: 30px;
+}

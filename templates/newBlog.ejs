@@ -1,0 +1,42 @@
+<% layout("./layouts/boilerplate.ejs") %> <%- include("./partials/alerts.ejs")
+%>
+<link rel="stylesheet" href="/css/newBlog.css" />
+
+<script
+    type="text/javascript"
+    src="//js.nicedit.com/nicEdit-latest.js"
+></script>
+<script type="text/javascript">
+    bkLib.onDomLoaded(function () {
+        new nicEditor().panelInstance("blog[summary]");
+    });
+</script>
+
+<main class="container">
+    <form action="/new" method="POST">
+        <div class="input-group mb-3 title">
+            <span class="input-group-text" id="basic-addon3">Title</span>
+            <input
+                type="text"
+                class="form-control input-title"
+                id="basic-url"
+                aria-describedby="basic-addon3"
+                name="blog[title]"
+                maxlength="20"
+            />
+        </div>
+        <div class="form-floating mb-2">
+            <textarea
+                class="form-control summary"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+                name="blog[summary]"
+                maxlength="650"
+            ></textarea>
+            <label for="floatingTextarea2">Summary</label>
+        </div>
+        <textarea name="blog[body]" id="editor"></textarea>
+        <button class="btn btn-success mt-3 submit">Submit</button>
+    </form>
+</main>

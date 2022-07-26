@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="/css/navBar.css" />
+
+<nav class="navbar navbar-expand-lg bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="#">MyPosts</a>
+        <button
+            class="navbar-toggler hamburger"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <i class="fa-solid fa-bars toggler-icon"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-light" aria-current="page" href="/">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/new">New Post</a>
+                </li>
+            </ul>
+            <div class="UserStatus">
+                <% if (currentUser) {%>
+                <div class="drop-down">
+                    <button class="drop-down-button user-name">
+                        <%= currentUser.firstName %>
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9_MRfNj37F7fBEXADUG-L3IVgGYsXbAfnGA&usqp=CAU"
+                            alt="white.png"
+                        />
+                    </button>
+                    <div class="drop-menu">
+                        <form action="/logout" method="POST">
+                            <button class="logout">logout</button>
+                        </form>
+                    </div>
+                </div>
+
+                <% } else { %>
+                <a href="/login" class="me-3 text-light"
+                    >login <i class="fa-solid fa-arrow-right-to-bracket"></i
+                ></a>
+                <a href="/register" class="text-light"
+                    >Register <i class="fa-solid fa-pen-to-square"></i
+                ></a>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

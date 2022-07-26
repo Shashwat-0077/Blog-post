@@ -1,0 +1,25 @@
+.main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 50px - 71px);
+}
+
+img {
+    margin-bottom: 50px;
+    width: 450px;
+}
+
+button {
+    border-style: dashed;
+    width: 300px;
+    height: 60px;
+    background-color: transparent;
+    font-size: x-large;
+}
+
+button:hover {
+    border-color: red;
+    color: red;
+}

@@ -1,0 +1,15 @@
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: auto;
+    padding-top: 100px;
+}
+
+@media (max-width: 1000px) {
+    .register-form {
+        width: 70%;
+    }
+}

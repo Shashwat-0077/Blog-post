@@ -1,0 +1,114 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<link rel="stylesheet" href="/css/register.css" />
+
+<%- include("./partials/alerts.ejs") %>
+<div class="register-form">
+    <form
+        action="/register"
+        class="row g-3 needs-validation"
+        novalidate
+        method="POST"
+    >
+        <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="user[firstName]"
+                required
+            />
+        </div>
+        <div class="col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="user[lastName]"
+                required
+            />
+        </div>
+
+        <div class="col-md-6">
+            <label for="username" class="form-label">Username</label>
+            <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="user[username]"
+                required
+            />
+        </div>
+
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="user[email]"
+                placeholder="example@gmail.com"
+                required
+            />
+        </div>
+        <div class="col-12">
+            <label for="password" class="form-label">Password</label>
+            <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+            />
+        </div>
+
+        <div class="col-12">
+            <label for="company" class="form-label">Company</label>
+            <input
+                type="text"
+                class="form-control"
+                id="company"
+                name="user[company]"
+                placeholder="can be none"
+            />
+        </div>
+        <div class="col-12">
+            <label for="Post" class="form-label">Post</label>
+            <input
+                type="text"
+                class="form-control"
+                id="Post"
+                name="user[post]"
+                placeholder="can be none"
+            />
+        </div>
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<script>
+    (() => {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach((form) => {
+            form.addEventListener(
+                "submit",
+                (event) => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add("was-validated");
+                },
+                false
+            );
+        });
+    })();
+</script>

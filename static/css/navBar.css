@@ -1,0 +1,61 @@
+nav {
+    font-family: "Lobster Two", cursive;
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.UserStatus a {
+    text-decoration: none;
+}
+
+.hamburger {
+    border-color: white;
+    color: white;
+}
+
+.toggler-icon {
+    width: 1.5rem;
+}
+
+.logout {
+    font-size: 20px;
+    background-color: transparent;
+    border: 0;
+}
+
+.profile {
+    display: flex;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.profile .name {
+    color: white;
+}
+
+.user-name {
+    color: white;
+    display: flex;
+    justify-content: baseline;
+    text-transform: capitalize;
+}
+
+.user-name img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.drop-down-button.user-name {
+    border: 0;
+    background-color: transparent;
+}

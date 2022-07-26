@@ -1,0 +1,140 @@
+hr {
+    border: none;
+    height: 2px;
+    background-color: gray;
+}
+hr::after {
+    content: "§";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(60deg);
+    transform-origin: 50% 50%;
+    padding: 1rem;
+    background-color: white;
+}
+
+.blogDetails {
+    min-height: calc(100vh - 141px);
+}
+
+.blogInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.blogInfo h1 {
+    font-family: "Lobster Two", cursive;
+    font-size: 75px;
+}
+
+.author {
+    align-self: end;
+    text-align: right;
+}
+
+.author p {
+    margin: 8px;
+}
+
+.commentForm button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.body iframe {
+    width: 100%;
+}
+
+#edit {
+    margin-right: 10px;
+}
+
+.edit,
+.delete {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    transition: color 300ms;
+}
+
+.edit:hover {
+    color: blue;
+}
+.delete:hover {
+    color: red;
+}
+
+.author form {
+    display: inline;
+}
+
+/* comments */
+
+.comment {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+}
+
+.comment:last-child {
+    margin-bottom: 20px;
+}
+
+.comment img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.comment .content {
+    width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.comment .content h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.comment .content p {
+    margin: 0;
+    width: 760px;
+}
+
+.time {
+    margin: 0;
+}
+
+.trash {
+    margin-left: 50px;
+    color: black;
+    background-color: transparent;
+    border: 0;
+    transition: color 300ms;
+}
+
+.trash:hover {
+    color: red;
+}
+
+#main-body {
+    min-height: calc(100vh - 50px - 71px - 30px);
+}
+
+.author p {
+    margin: 0;
+}

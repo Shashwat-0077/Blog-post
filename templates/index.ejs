@@ -1,0 +1,80 @@
+<% layout("./layouts/boilerplate.ejs")%>
+<link rel="stylesheet" href="/css/index.css" />
+
+<div class="top">
+    <a href="#top"><i class="fa-solid fa-circle-chevron-up topButton"></i></a>
+</div>
+
+<div class="headAndImage" id="top">
+    <img
+        src="/images/pen-and-paper-wallpaper.jpg"
+        class="title-picture"
+        alt=""
+    />
+    <h1>Blog Post</h1>
+</div>
+
+<%- include("./partials/alerts.ejs") %>
+
+<div class="toolbar container">
+    <div class="drop-down">
+        <button class="drop-down-button sort" data-dropdown-button>
+            <i class="fa-solid fa-sort"></i>
+            <p>Sort By</p>
+            <i class="fa-solid fa-chevron-down drop-down-arrow"></i>
+        </button>
+        <div class="drop-menu sort-menu">
+            <button class="sort-button" data-sort="date">Date</button>
+            <button class="sort-button" data-sort="likes">Likes</button>
+            <button class="sort-button" data-sort="title">Title</button>
+        </div>
+    </div>
+
+    <div>
+        <form action="/">
+            <div class="input-group mb-3">
+                <input
+                    type="text"
+                    class="form-control"
+                    id="search-field"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="button-addon2"
+                    name="search"
+                />
+                <button
+                    class="btn btn-dark"
+                    id="search-button"
+                    type="submit"
+                    id="button-addon2"
+                >
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<main class="container">
+    <% if(blogs.length < 1) { %>
+    <div class="notFound">
+        <img src="/images/notFound.png" alt="" />
+        <h2>Blog not found! Try making new Blogs</h2>
+    </div>
+    <% } %>
+
+    <!---->
+    <% for(let blog of blogs) {%>
+    <button
+        class="blog"
+        id="<%= blog._id %>"
+        onclick="location.href = '/blog/<%=blog._id%>'"
+    >
+        <h2 class="title"><u> <%=blog.title%> </u></h2>
+        <p class="summary"><%=blog.summary %></p>
+        <p class="author">~<%= blog.author.firstName %></p>
+    </button>
+    <% } %>
+</main>
+
+<script src="/js/buttonRedirect.js"></script>

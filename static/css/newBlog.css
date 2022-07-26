@@ -1,0 +1,15 @@
+#cke_1_contents {
+    min-height: calc(100vh - 369px);
+}
+
+.title {
+    margin-top: 15px;
+}
+
+.submit {
+    width: 100%;
+}
+
+#main-body {
+    min-height: calc(100vh - 50px - 71px - 15px);
+}

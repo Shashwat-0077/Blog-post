@@ -1,0 +1,21 @@
+<% layout("./layouts/boilerplate.ejs") %>
+
+<link rel="stylesheet" href="/css/something-went-wrong.css" />
+
+<div class="container">
+    <img id="gif" src="/images/something-went-wrong.gif" alt="" />
+    <form action="/">
+        <div class="form-floating">
+            <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="issue"
+            ></textarea>
+            <label for="issue"
+                >Please Describe what steps did you take so that we could solve
+                the problem that occurred</label
+            >
+            <button class="btn btn-success submit">Report</button>
+        </div>
+    </form>
+</div>

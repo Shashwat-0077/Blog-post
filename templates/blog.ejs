@@ -1,0 +1,98 @@
+<% layout("./layouts/boilerplate.ejs") %> <%-include("./partials/alerts.ejs") %>
+<link rel="stylesheet" href="/css/blog.css" />
+<script src="/js/iframeHeight.js"></script>
+
+<div class="container blogDetails">
+    <div class="blogInfo">
+        <div>
+            <h1><%= blog.title %></h1>
+            <p class="time"></p>
+        </div>
+
+        <div class="author">
+            <p>~<%= blog.author.firstName %></p>
+            <p><%= blog.author.post %></p>
+            <p><%= blog.author.company %></p>
+            <div class="actions">
+                <% if(currentUser && blog.author.equals(currentUser._id)) { %>
+                <form action="/blog/<%= blog._id %>/edit">
+                    <button type="submit" class="edit">
+                        <i class="fa-solid fa-file-pen"></i> Edit
+                    </button>
+                </form>
+                <form
+                    action="/blog/<%= blog._id %>?_method=DELETE"
+                    method="POST"
+                >
+                    <button type="submit" class="delete">
+                        <i class="fa-solid fa-trash"></i> Delete
+                    </button>
+                </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="body">
+        <iframe
+            srcdoc="<%= blog.body %>"
+            frameborder="0"
+            scrolling="no"
+            onload="resizeIframe(this)"
+        ></iframe>
+    </div>
+
+    <hr />
+
+    <% if (currentUser){ %>
+    <form
+        action="/blog/<%= blog._id %>/comment/new"
+        class="commentForm"
+        method="POST"
+    >
+        <div class="form-floating">
+            <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea"
+                name="comment[body]"
+            ></textarea>
+            <label for="floatingTextarea">Comments</label>
+        </div>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <% } %> <% for(let comment of blog.comments) {%>
+    <div class="comment">
+        <div class="img">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF_ZaA-USt-NeHri-3QQmk63MUqNkN2Hhoxw&usqp=CAU"
+                alt="..."
+            />
+        </div>
+        <div class="content">
+            <h1><%= comment.user.firstName %></h1>
+            <p><%= comment.body %></p>
+        </div>
+        <div class="time-delete">
+            <p class="time">
+                <%= comment.editedAt.getDate() %>/<%=
+                comment.editedAt.getMonth() %>/<%=
+                comment.editedAt.getFullYear() %>
+            </p>
+            <% if (currentUser && comment.user.equals(currentUser._id)) { %>
+            <form
+                action="/blog/<%= blog._id %>/<%= comment._id %>/delete"
+                method="POST"
+            >
+                <button class="trash"><i class="fa-solid fa-trash"></i></button>
+            </form>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<!-- reference for like count : https://stackoverflow.com/questions/30646997/update-the-todo-list-without-refreshing-the-page-in-express-nodejs-app -->
+<!-- reference to text editor in website : https://froala.com/blog/editor/how-to-add-a-text-editor-in-an-html-form/ -->
