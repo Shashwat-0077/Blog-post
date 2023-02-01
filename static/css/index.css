@@ -4,6 +4,7 @@
     object-position: 0 65%;
     object-fit: cover;
     opacity: 50%;
+    pointer-events: none;
 }
 
 .headAndImage {

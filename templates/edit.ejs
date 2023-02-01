@@ -1,5 +1,9 @@
 <% layout("./layouts/boilerplate.ejs") %> <%-include("./partials/alerts.ejs") %>
 <link rel="stylesheet" href="/css/newBlog.css" />
+<script
+    src="https://cdn.tiny.cloud/1/o640zxguruw63g7ipwkexupmuh3wvrs7r72pnnftjme9hla4/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"
+></script>
 
 <script src="//js.nicedit.com/nicEdit-latest.js"></script>
 <script type="text/javascript">
@@ -34,3 +38,12 @@
         <button class="btn btn-success mt-3 submit">Submit</button>
     </form>
 </main>
+
+<script>
+    tinymce.init({
+        selector: "#editor",
+        plugins:
+            "advlist autolink lists link image charmap preview anchor pagebreak",
+        toolbar_mode: "floating",
+    });
+</script>

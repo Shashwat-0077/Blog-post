@@ -81,10 +81,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/error", (req, res, next) => {
-    ship.fly();
-});
-
 app.get(
     "/",
     detectError(async (req, res) => {
@@ -301,6 +297,6 @@ app.all("*", (req, res) => {
     res.status(404).render("404_page");
 });
 
-app.listen(8080, () => {
-    console.log("Meet you at 8080");
+app.listen(80, () => {
+    console.log("Meet you at 80");
 });

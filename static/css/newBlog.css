@@ -13,3 +13,7 @@
 #main-body {
     min-height: calc(100vh - 50px - 71px - 15px);
 }
+
+#editor {
+    height: 200px;
+}
